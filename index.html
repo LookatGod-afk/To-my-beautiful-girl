@@ -7,140 +7,109 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
+* { box-sizing: border-box; }
+
 body {
     margin: 0;
-    padding: 0;
+    padding: 20px;
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #ff9ecb, #ff4da6);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .container {
-    position: relative;
+    width: 100%;
+    max-width: 500px;
     text-align: center;
     background: rgba(255,255,255,0.15);
     backdrop-filter: blur(15px);
-    padding: 40px;
-    border-radius: 30px;
-    box-shadow: 0 0 40px rgba(255,0,150,0.6);
-    max-width: 1000px;
-    z-index: 2;
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 0 30px rgba(255,0,150,0.6);
 }
 
 h1 {
     font-family: 'Great Vibes', cursive;
-    font-size: 3.5rem;
+    font-size: 2.2rem;
     color: white;
     margin-bottom: 10px;
     text-shadow: 0 0 20px #ff1a75, 0 0 40px #ff66cc;
 }
 
 p {
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: white;
     font-weight: 600;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     text-shadow: 0 0 10px #ff3399;
 }
 
-/* Polaroid Playing Card Layout */
 .polaroid-container {
-    position: relative;
-    width: 500px;
-    height: 350px;
-    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
 }
 
 .polaroid {
-    position: absolute;
-    width: 160px;
+    width: 120px;
     background: white;
-    padding: 10px 10px 30px 10px;
+    padding: 8px 8px 25px 8px;
     border-radius: 5px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    transition: transform 0.4s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: rotate(-3deg);
+    transition: transform 0.3s ease;
+}
+
+.polaroid:nth-child(even) {
+    transform: rotate(3deg);
 }
 
 .polaroid img {
     width: 100%;
-    height: 150px;
+    height: 100px;
     object-fit: cover;
     border-radius: 3px;
 }
 
 .polaroid:hover {
-    transform: scale(1.1) rotate(0deg) !important;
-    z-index: 5;
+    transform: scale(1.05) rotate(0deg);
 }
 
-/* Playing card fan effect */
-.card1 { left: 40px;  top: 80px;  transform: rotate(-20deg); }
-.card2 { left: 120px; top: 40px;  transform: rotate(-10deg); }
-.card3 { left: 200px; top: 20px;  transform: rotate(0deg); }
-.card4 { left: 280px; top: 40px;  transform: rotate(10deg); }
-.card5 { left: 360px; top: 80px;  transform: rotate(20deg); }
-
-/* Electronic bouquet */
 .bouquet {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
-    gap: 60px;
-    padding-bottom: 40px;
-    z-index: 1;
+    gap: 25px;
 }
 
 .flower {
-    font-size: 4.5rem;
+    font-size: 2.5rem;
     animation: float 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
-    filter: drop-shadow(0 0 15px #ff00cc);
+    filter: drop-shadow(0 0 10px #ff00cc);
 }
 
 @keyframes float {
     0% { transform: translateY(0px); }
-    50% { transform: translateY(-25px); }
+    50% { transform: translateY(-15px); }
     100% { transform: translateY(0px); }
 }
 
 @keyframes glow {
     0% { text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff66ff; }
-    100% { text-shadow: 0 0 30px #00ffff, 0 0 50px #ff00cc; }
-}
-
-/* Floating hearts */
-.hearts {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.heart {
-    position: absolute;
-    color: #ff1a75;
-    font-size: 1.5rem;
-    animation: fall 6s linear infinite;
-    text-shadow: 0 0 15px #ff00cc;
-}
-
-@keyframes fall {
-    0% { transform: translateY(-10%); opacity: 1; }
-    100% { transform: translateY(110vh); opacity: 0; }
+    100% { text-shadow: 0 0 25px #00ffff, 0 0 40px #ff00cc; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Background Music -->
-<audio autoplay loop>
+<!-- Autoplay Music (Best possible compatibility) -->
+<audio id="bgMusic" autoplay loop playsinline>
     <source src="your-music-file.mp3" type="audio/mpeg">
 </audio>
 
@@ -149,29 +118,32 @@ p {
     <p>Happy valentins day to the most beautiful girl, i love you so much</p>
 
     <div class="polaroid-container">
-        <div class="polaroid card1"><img src="photo1.jpg"></div>
-        <div class="polaroid card2"><img src="photo2.jpg"></div>
-        <div class="polaroid card3"><img src="photo3.jpg"></div>
-        <div class="polaroid card4"><img src="photo4.jpg"></div>
-        <div class="polaroid card5"><img src="photo5.jpg"></div>
+        <div class="polaroid"><img src="photo1.jpg"></div>
+        <div class="polaroid"><img src="photo2.jpg"></div>
+        <div class="polaroid"><img src="photo3.jpg"></div>
+        <div class="polaroid"><img src="photo4.jpg"></div>
+        <div class="polaroid"><img src="photo5.jpg"></div>
+    </div>
+
+    <div class="bouquet">
+        <div class="flower">🌹</div>
+        <div class="flower">🌻</div>
+        <div class="flower">🌸</div>
+        <div class="flower">🌷</div>
     </div>
 </div>
 
-<div class="bouquet">
-    <div class="flower">🌹</div>
-    <div class="flower">🌻</div>
-    <div class="flower">🌸</div>
-    <div class="flower">🌷</div>
-</div>
-
-<div class="hearts">
-    <div class="heart" style="left:10%; animation-delay:0s;">❤️</div>
-    <div class="heart" style="left:25%; animation-delay:2s;">💖</div>
-    <div class="heart" style="left:40%; animation-delay:4s;">💕</div>
-    <div class="heart" style="left:60%; animation-delay:1s;">💘</div>
-    <div class="heart" style="left:75%; animation-delay:3s;">💓</div>
-    <div class="heart" style="left:90%; animation-delay:5s;">❤️</div>
-</div>
+<script>
+// Force autoplay attempt for mobile browsers
+window.addEventListener('load', function() {
+    const music = document.getElementById('bgMusic');
+    music.play().catch(() => {
+        // If blocked, try again on first interaction
+        document.addEventListener('touchstart', () => music.play(), { once: true });
+        document.addEventListener('click', () => music.play(), { once: true });
+    });
+});
+</script>
 
 </body>
 </html>
