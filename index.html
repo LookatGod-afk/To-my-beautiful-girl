@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's Day ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff9ecb, #ff4da6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 0 40px rgba(255,0,150,0.6);
+    max-width: 1000px;
+    z-index: 2;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px #ff1a75, 0 0 40px #ff66cc;
+}
+
+p {
+    font-size: 1.4rem;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 40px;
+    text-shadow: 0 0 10px #ff3399;
+}
+
+/* Polaroid Playing Card Layout */
+.polaroid-container {
+    position: relative;
+    width: 500px;
+    height: 350px;
+    margin: 0 auto;
+}
+
+.polaroid {
+    position: absolute;
+    width: 160px;
+    background: white;
+    padding: 10px 10px 30px 10px;
+    border-radius: 5px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.4s ease;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 3px;
+}
+
+.polaroid:hover {
+    transform: scale(1.1) rotate(0deg) !important;
+    z-index: 5;
+}
+
+/* Playing card fan effect */
+.card1 { left: 40px;  top: 80px;  transform: rotate(-20deg); }
+.card2 { left: 120px; top: 40px;  transform: rotate(-10deg); }
+.card3 { left: 200px; top: 20px;  transform: rotate(0deg); }
+.card4 { left: 280px; top: 40px;  transform: rotate(10deg); }
+.card5 { left: 360px; top: 80px;  transform: rotate(20deg); }
+
+/* Electronic bouquet */
+.bouquet {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    padding-bottom: 40px;
+    z-index: 1;
+}
+
+.flower {
+    font-size: 4.5rem;
+    animation: float 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+    filter: drop-shadow(0 0 15px #ff00cc);
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-25px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 10px #ff00cc, 0 0 20px #ff66ff; }
+    100% { text-shadow: 0 0 30px #00ffff, 0 0 50px #ff00cc; }
+}
+
+/* Floating hearts */
+.hearts {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    color: #ff1a75;
+    font-size: 1.5rem;
+    animation: fall 6s linear infinite;
+    text-shadow: 0 0 15px #ff00cc;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10%); opacity: 1; }
+    100% { transform: translateY(110vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+    <source src="your-music-file.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+    <h1>Happy Valentines Day 💖</h1>
+    <p>Happy valentins day to the most beautiful girl, i love you so much</p>
+
+    <div class="polaroid-container">
+        <div class="polaroid card1"><img src="photo1.jpg"></div>
+        <div class="polaroid card2"><img src="photo2.jpg"></div>
+        <div class="polaroid card3"><img src="photo3.jpg"></div>
+        <div class="polaroid card4"><img src="photo4.jpg"></div>
+        <div class="polaroid card5"><img src="photo5.jpg"></div>
+    </div>
+</div>
+
+<div class="bouquet">
+    <div class="flower">🌹</div>
+    <div class="flower">🌻</div>
+    <div class="flower">🌸</div>
+    <div class="flower">🌷</div>
+</div>
+
+<div class="hearts">
+    <div class="heart" style="left:10%; animation-delay:0s;">❤️</div>
+    <div class="heart" style="left:25%; animation-delay:2s;">💖</div>
+    <div class="heart" style="left:40%; animation-delay:4s;">💕</div>
+    <div class="heart" style="left:60%; animation-delay:1s;">💘</div>
+    <div class="heart" style="left:75%; animation-delay:3s;">💓</div>
+    <div class="heart" style="left:90%; animation-delay:5s;">❤️</div>
+</div>
+
+</body>
+</html>
