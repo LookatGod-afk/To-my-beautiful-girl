@@ -17,6 +17,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 15px;
+    overflow-x: hidden;
 }
 
 .container {
@@ -28,6 +29,7 @@ body {
     border-radius: 20px;
     box-shadow: 0 0 25px rgba(255,0,150,0.6);
     text-align: center;
+    position: relative;
 }
 
 h1 {
@@ -42,33 +44,43 @@ p {
     font-size: 0.95rem;
     color: white;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
+/* MOBILE PLAYING CARD FAN */
 .polaroid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+    position: relative;
+    height: 220px;
     margin-bottom: 20px;
 }
 
 .polaroid {
+    position: absolute;
+    width: 110px;
     background: white;
     padding: 6px 6px 18px 6px;
     border-radius: 6px;
     box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-    transform: rotate(-2deg);
-}
-
-.polaroid:nth-child(even) {
-    transform: rotate(2deg);
+    transition: transform 0.3s ease;
 }
 
 .polaroid img {
     width: 100%;
-    height: 110px;
+    height: 95px;
     object-fit: cover;
     border-radius: 4px;
+}
+
+/* Fan positioning (scaled for mobile) */
+.card1 { left: 0px;   top: 60px; transform: rotate(-18deg); }
+.card2 { left: 55px;  top: 30px; transform: rotate(-9deg); }
+.card3 { left: 110px; top: 15px; transform: rotate(0deg); }
+.card4 { left: 165px; top: 30px; transform: rotate(9deg); }
+.card5 { left: 220px; top: 60px; transform: rotate(18deg); }
+
+.polaroid:hover {
+    transform: scale(1.08) rotate(0deg) !important;
+    z-index: 5;
 }
 
 .bouquet {
@@ -94,11 +106,10 @@ p {
     100% { text-shadow: 0 0 18px #00ffff; }
 }
 
-@media (max-width: 350px) {
-    .polaroid-container {
-        grid-template-columns: 1fr;
-    }
+@media (max-width: 380px) {
+    .polaroid-container { transform: scale(0.9); left: -10px; }
 }
+
 </style>
 </head>
 
@@ -113,11 +124,11 @@ p {
     <p>Happy valentins day to the most beautiful girl, i love you so much</p>
 
     <div class="polaroid-container">
-        <div class="polaroid"><img src="photo1.jpg" alt="Memory 1"></div>
-        <div class="polaroid"><img src="photo2.jpg" alt="Memory 2"></div>
-        <div class="polaroid"><img src="photo3.jpg" alt="Memory 3"></div>
-        <div class="polaroid"><img src="photo4.jpg" alt="Memory 4"></div>
-        <div class="polaroid"><img src="photo5.jpg" alt="Memory 5"></div>
+        <div class="polaroid card1"><img src="photo1.jpg" alt="Memory 1"></div>
+        <div class="polaroid card2"><img src="photo2.jpg" alt="Memory 2"></div>
+        <div class="polaroid card3"><img src="photo3.jpg" alt="Memory 3"></div>
+        <div class="polaroid card4"><img src="photo4.jpg" alt="Memory 4"></div>
+        <div class="polaroid card5"><img src="photo5.jpg" alt="Memory 5"></div>
     </div>
 
     <div class="bouquet">
